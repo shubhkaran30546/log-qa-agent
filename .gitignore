@@ -1,0 +1,19 @@
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+
+# Secrets (keep .env.example)
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+
+# Generated data
+data/logs.db
+data/logs.jsonl

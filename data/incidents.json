@@ -1,0 +1,37 @@
+[
+  {
+    "id": "db_timeouts",
+    "service": "orders",
+    "root_cause": "slow unindexed query exhausted DB connection pool",
+    "start": "2026-10-14T13:12:00",
+    "end": "2026-10-14T13:21:00",
+    "symptoms": [
+      "orders db timeout",
+      "gateway 504"
+    ]
+  },
+  {
+    "id": "payment_outage",
+    "service": "payments",
+    "root_cause": "third-party payment provider (stripe) returning 503",
+    "start": "2026-10-14T14:41:00",
+    "end": "2026-10-14T14:55:00",
+    "symptoms": [
+      "provider 503",
+      "circuit breaker open",
+      "gateway 502/503 on checkout"
+    ]
+  },
+  {
+    "id": "bad_deploy",
+    "service": "auth",
+    "root_cause": "auth deploy v2.3.1 raised KeyError 'tenant_id' on login",
+    "start": "2026-10-14T15:10:00",
+    "end": "2026-10-14T15:30:00",
+    "symptoms": [
+      "gateway 500 on login",
+      "auth KeyError 'tenant_id'",
+      "errors on auth-1 before auth-2"
+    ]
+  }
+]
